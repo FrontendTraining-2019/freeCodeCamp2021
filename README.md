@@ -1,4 +1,4 @@
-# 2021 - My New Coding Journey
+# My New Coding Journey
 
 <img src="https://miro.medium.com/max/750/1*eDaRLwBlwmjCpkeeqRM4vw.png">
 
