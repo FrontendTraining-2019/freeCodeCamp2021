@@ -4,14 +4,10 @@
     <header>
       <img src="https://img.icons8.com/offices/30/000000/react.png"/> React Documentation
     </header>
-
+    
     <ul>
       <li>
-        <a class="nav-link" href="#Getting_Started">Getting Started</a>
-      </li>
-
-      <li>
-        <a class="nav-link" href="#Main_Concepts">Main Concepts</a>
+        <a class="nav-link" href="#Introduction_to_React">Introduction to React</a>
       </li>
 
       <li>
@@ -51,7 +47,7 @@
       </li>
 
       <li>
-        <a class="nav-link" href="#Lifting_State_Up">Lifting State Up</a>
+        <a class="nav-link" href="#Lifting_State_Up">Lifiting State Up</a>
       </li>
 
       <li>
@@ -63,19 +59,280 @@
       </li>
     </ul>
   </nav>
-
+  
   <main id="main-doc">
-    <section class="main-section" id="#Getting_Started">
-      <header>Getting Started</header>
-
+    <section class="main-section" id="Introduction_to_React">
+      <header>Introduction to React</header>
       <article>
         <p>
-          This page is an overview of the React documentation and related resources.
+          React is a library for building user interfaces. React is not a framework - it's not even exclusive to the web. It is used with other libraries to render to certain environments. For instance, React Native can be used to build mobile applications; React 360 can be used to build virtual reality applications; and there are other possibilities besides.
         </p>
 
         <p>
-          React is a JavaScript library for building user interfaces. Learn what React is all about on our homepage or in the tutorial.
+          React's primary goal is to minimize the bugs that occur when developers are building UIs. It does this through the use of components - self-contained, logical pieces of code that describe a portion of the user interface. These components can be composed together to create a full UI, and React abstracts away much of the rendering work, leaving you to concentrate on the UI design.
         </p>
+      </article>
+    </section>
+
+    <section class="#main-section" id="Hello_World">
+      <header>Hello World</header>
+      <article>
+        <p>
+          The smallest React example looks like this:
+        </p>
+
+        <div class="code-container">
+          <pre>
+            ReactDOM.render(
+              &lt;h1&gt;Hello, world!&lt;/h1&gt;
+              document.getElementById('root')
+            );
+          </pre>
+        </div>
+
+        <p>
+          It displays a heading saying "Hello, world!" on the page.
+        </p>
+      </article>
+    </section>
+
+    <section class="#main-section" id="Introducing_JSX">
+      <header>Introducing JSX</header>
+      <article>
+        <p>
+          Consider this variable declaration:
+        </p>
+
+        <div class="code-container">
+          <code>
+            const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+          </code>
+        </div>
+
+        <p>
+          This funny tag syntax is neither a string nor HTML.
+        </p>
+
+        <p>
+          It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to describe what the UI should look like. JSX may remind you of a template language, but it comes with the full power of JavaScript.
+        </p>
+      </article>
+    </section>
+
+    <section class="#main-section" id="Rendering_Elements">
+      <header>Rendering Elements</header>
+      <article>
+        <p>
+          Elements are the smallest building blocks of React apps.
+        </p>
+
+        <p>
+          An element describes what you want to see on the screen:
+        </p>
+
+        <div class="code-container">
+          <code>
+            const element = &lt;h1&gt;Hello,world&lt;/h1&gt;;
+          </code>
+        </div>
+
+        <p>
+          Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+        </p>
+      </article>
+    </section>
+
+    <section class="main-section" id="Components_and_Props">
+      <header>Components and Props</header>
+      <article>
+        <p>
+          Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a detailed component API reference here.
+        </p>
+
+        <p>
+          Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+        </p>
+
+        <h4>
+          Function and Class Components
+        </h4>
+
+        <p>
+          The simplest way to define a componet is to write a JavaScript function:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+            </pre>
+          </code>
+        </div>
+        
+        <p>
+          This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+        </p>
+      </article>
+    </section>
+
+    <section class="main-section" id="State_and_Lifecycle">
+      <header>State and Lifecycle</header>
+      <article>
+        <p>
+          This page introduces the concept of state and lifecycle in a React componet. You can find a <a href="https://reactjs.org/docs/react-component.html">detailed component API reference here</a>.
+        </p>
+
+        <p>
+          Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have only learned one way to update the UI. We call ReactDOM.render() to change the rendered output:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function tick() {
+                const element = (
+                  &lt;div&gt;
+                    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                    &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
+                  &lt;/div&gt;
+                );
+                ReactDOM.render(
+                  element,
+                  document.getElementById('root')
+                );
+              }
+
+              setInterval(tick, 1000);
+            </pre>
+          </code>
+        </div>
+      </article>
+    </section>
+
+    <section class="main-section" id="Handling_Events">
+      <header>Handling Events</header>
+      <article>
+        <p>
+          Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+        </p>
+
+        <ul>
+          <li>
+            React events are named using camelCase, rather than lowercase.
+          </li>
+
+          <li>
+            With JSX you pass a function as the event handler, rather than a string.
+          </li>
+        </ul>
+
+        <p>
+          For example, the HTML:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              &lt;button onclick="activateLasers()"&gt;
+                Activate Lasers
+              &lt;/button&gt;
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          is slightly different in React:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              &lt;button onClick={activateLasers}&gt;
+                Activate Lasers
+              &lt;/button&gt;
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          In React, this could instead be:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function ActionLink() {
+                function handleClick(e) {
+                  e.preventDefault();
+                  console.log('The link was clicked.');
+                }
+
+                return (
+                  &lt;a href="#" onClick={handleClick}&gt;
+                    Click me
+                  &lt;/a&gt;
+                );
+              }
+            </pre>
+          </code>
+        </div>
+      </article>
+    </section>
+
+    <section class="main-class" id="Conditional_Rendering">
+      <header>Conditional Rendering</header>
+      <article>
+        <p>
+          In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application.
+        </p>
+
+        <p>
+          Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditonal operator to create elements representing the current state, and let React update the UI to match them.
+        </p>
+
+        <p>
+          Consider these two components:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function UserGreeting(props) {
+                return &lt;h1&gt;Welcome back!&lt;/h1&gt;;
+              }
+
+              function GuestGreeting(props) {
+                return &lt;h1&gt;Please sign up.&lt;/h1&gt;;
+              }
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          We'll create a Greeting component that displays either of these components depending on whether a user is logged in:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function Greeting(props) {
+                const isLoggedIn = props.isLoggedIn;
+                if (isLoggedIn) {
+                  return &lt;UserGreeting/&gt;;
+                }
+                return &lt;GuestGreeting/&gt;
+              }
+
+              ReactDOM.render(
+                // Try changing to isLoggedIn={true}:
+                &lt;Greeting isLoggedIn={false}/&gt;,
+                document.getElementById('root')
+              );
+            </pre>
+          </code>
+        </div>
       </article>
     </section>
   </main>
