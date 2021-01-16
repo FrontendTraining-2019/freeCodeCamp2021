@@ -138,6 +138,6 @@ img {
   border-radius: 50%;
 }
 
-
-
-
+.codeInfo {
+  text-decoration: none;
+}
