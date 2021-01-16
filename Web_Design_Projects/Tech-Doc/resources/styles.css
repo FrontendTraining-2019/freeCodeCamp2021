@@ -82,7 +82,7 @@ section {
   padding: 5px;
   margin: 5px;
   width: 100%;
-  max-width: 335px;
+  max-width: 599px;
   color: #FFF;
   font-weight: 600;
   font-size: 1.0em;
@@ -129,4 +129,15 @@ section {
     min-width: 233px;
   }
 }
+
+footer {
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
+
+
+
 

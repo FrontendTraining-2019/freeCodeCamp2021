@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>React Technical Documentation</title>
-    <link href="/styles.css" type="text/css" rel="stylesheet">
+    <link href="/resources/styles.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
   </head>
 
   <nav id="navbar">
@@ -137,9 +138,271 @@
       <header>Components and Props</header>
       <article>
         <p>
-          Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a <a href="https://reactjs.org/docs/react-component.html">detailed component API reference here.</a>
+          Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a <a href="https://reactjs.org/docs/react-component.html">detailed component API reference here.</a> Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+        </p>
+
+        <h3>
+          Function and Class Components
+        </h3>
+
+        <p>
+          The simplest way to define a component is to write a JavaScript function. The below function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function Welcome(props) {
+                return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+              }
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          You can also use an ES6 class to define a component:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              class Welcome extends React.Component {
+                render() {
+                  return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+                }
+              }
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          The above two components are equivalent from React's point of view. Function and Class components both have some additional features.
         </p>
       </article>
     </section>
+    
+    <section class="main-section" id="State_and_Lifecycle">
+      <header>State and Lifecycle</header>
+      <article>
+        <p>
+          Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have only learned one way to update the UI. We call ReactDOM.render() to change the rendered output:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function tick() {
+                const element = (
+                  &lt;div&gt;
+                    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                    &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
+                  &lt;/div&gt;
+                );
+                ReactDOM.render(
+                  element,
+                  document.getElementById('root')
+                );
+              }
+
+              setInterval(tick, 1000);
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          In this section, we will learn how to make the Clock component truly reusable and encapsulated. It will set up its own timer and update itself every second. We can start by encapsulating how the clock looks:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function Clock(props) {
+                return (
+                  &lt;div&gt;
+                    &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                    &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;
+                  &lt;/div&gt;
+                );
+              }
+
+              function tick() {
+                ReactDOM.render(
+                  &lt;Clock date={new Date()}/&gt;,
+                  document.getElementById('root')
+                );
+              }
+
+              setInterval(tick, 1000);
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          However, it misses a crucial requirement: the fact that the Clock sets up a timer and updates the UI every second should be an impelmentation detail of the Clock. Ideally we want to write this once and have the Clock update itself:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              ReactDOM.render(
+                &lt;Clock/&gt;,
+                document.getElementById('root')
+              );
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          To implement this, we need to add "state" to the Clock component. State is similar to props, but it is private and fully controlled by the component.
+        </p>
+      </article>
+    </section>
+
+    <section class="main-section" id="Handling_Events">
+      <header>Handling Events</header>
+      <article>
+        <p>
+          Handling events with React elements is very similar to handling events to DOM elements. There are some syntax differences:
+          <ul>
+            <li>
+              React events are named using camelCase, rather than lowercase.
+            </li>
+
+            <li>
+              With JSX you pass a function as the event handler, rather than a string.
+            </li>
+          </ul>
+          For example, the HTML:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              &lt;button onclick="activateLasers()"&gt;
+                Activate Lasers
+              &lt;/button&gt;
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          is slightly different in React:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              &lt;button onClick={activateLasers}&gt;
+                Activate Lasers
+              &lt;/button&gt;
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          Another difference is that you cannot return false to prevent default behavior in React. You must call preventDefault explicitly. For example, with plain HTML, to prevent the default link behavior of opening a new page, you can write:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              &lt;a href="#" onclick="console.log('The link was clicked.'); return false"&gt;
+                Click me
+              &lt;/a&gt;
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          In React, this could instead be:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function ActionLink() {
+                function handleClick(e) {
+                  e.preventDefault();
+                  console.log('The link was clicked.');
+                }
+
+                return (
+                  &lt;a href="#" onClick={handleClick}&gt;
+                    Click me
+                  &lt;/a&gt;
+                );
+              }
+            </pre>
+          </code>
+        </div>
+
+        <p>
+          Here, e is a synthetic event. React defines these synthetic events according to the W3C spec, so you don't need to worry about cross-browser compatibility. React events do not work exactly the same as native events. See the <a href="https://reactjs.org/docs/events.html">SyntheticEvent</a> reference guide to learn more.
+        </p>
+      </article>
+    </section>
+
+    <section class="main-section" id="Conditional_Rendering">
+      <header>Conditional Rendering</header>
+      <article>
+        <p>
+          In React, you can create distinct components that encapsulate behavior you need. Then, you can render only some of them, depending on the state of your application. Conditional rendering in React works the same way conditions work in JavaScript. Use JavaScript operators like if or the conditional operator to create elements representing the current state, and let React update the UI to match them. Consider these two components:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function UserGreeting(props) {
+                return &lt;h1&gt;Welcome back!&lt;/h1&gt;;
+              }
+
+              function GuestGreeting(props) {
+                return &lt;h1&gt;Please sign up.&lt;/h1&gt;;
+              }
+            </pre>
+          </code>
+        </div>
+        
+        <p>
+          We'll create a Greeting component that displays either of these components depending on whether a user is logged in:
+        </p>
+
+        <div class="code-container">
+          <code>
+            <pre>
+              function Greeting(props) {
+                const isLoggedIn = props.isLoggedIn;
+                if (isLoggedIn) {
+                  return &lt;UserGreeting/&gt;;
+                }
+                return &lt;GuestGreeting/&gt;;
+              }
+
+              ReactDOM.render(
+                // Try changing to isLoggedIn={true}:
+                &lt;Greeting isLoggedIn={false}/&gt;,
+                document.getElementById('root')
+              );
+            </pre>
+          </code>
+        </div>
+      </article>
+    </section>
+
+    <section class="main-section" id="Reference">
+      <header>Reference</header>
+      <article>
+        <p>
+          All the content in this documentation is taken from the original <a href="https://reactjs.org/docs/getting-started.html" style="text-decoration: none;">React Documentation</a> and related resources.
+        </p>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        A project for <a href="https://www.freecodecamp.org/" style="text-decoration: none;">freeCodeCamp</a> by: <a href="https://github.com/dreampoetlee" style="text-decoration: none;">
+          <img src="/resources/theNerdist.png">Jay Lee Kennedy</a>
+      </p>
+    </footer>
   </main>
 </html>
