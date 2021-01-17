@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FCC: Superhero Survey Form</title>
+    <link href="/resources/styles.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 id="title" class="text-center">
+          Superhero Survey Form
+        </h1>
+
+        <p id="description" class="description text-center">
+          Thank you for taking the time to fill out this fun survey.
+        </p>
+      </header>
+
+      <form id="survey-form">
+        <div class="form-group">
+          <label id="name-label" for="name">
+            Name
+          </label>
+
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label id="email-label" for="email">
+            Email
+          </label>
+
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label id="number-label" for="number">
+            Age <span class="clue">(optional)</span>
+          </label>
+
+          <input
+            type="number"
+            name="age"
+            id="number"
+            min="10"
+            max="99"
+            class="form-control"
+            placeholder="Age"
+          />
+        </div>
+
+        <div class="form-group">
+          <p>
+            Which option best describes your fan level?
+          </p>
+
+          <select id="dropdown" name="role" class="form-control" required>
+            <option disabled selected value>
+              Select your fan level
+            </option>
+
+            <option value="fanatic">Fanatic</option>
+            <option value="superfan">Superfan</option>
+            <option value="devoted">Devoted</option>
+            <option value="notafan">Not a Fan</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Which is the best Superhero Universe?
+          </p>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="marvel"
+              type="radio"
+              class="input-radio"
+              checked
+            />
+            Marvel
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="dc"
+              type="radio"
+              class="input-radio"
+            />
+            DC
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="astrocity"
+              type="radio"
+              class="input-radio"
+            />
+            Astro City
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="top10"
+              type="radio"
+              class="input-radio"
+            />
+            Top 10
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="american-way"
+              type="radio"
+              class="input-radio"
+            />
+            The American Way
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="dakota"
+              type="radio"
+              class="input-radio"
+            />
+            Dakotaverse
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="ultra"
+              type="radio"
+              class="input-radio"
+            />
+            Ultraverse
+          </label>
+
+          <label>
+            <input
+              name="superhero-universe"
+              value="invincible"
+              type="radio"
+              class="input-radio"
+            />
+            Invincible
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Do you read superhero comic books or graphic novels?
+          </p>
+
+          <label>
+            <input
+              name="comic-book"
+              value="all-time"
+              type="radio"
+              class="input-radio"
+            />
+            Yes, all the time!
+          </label>
+
+          <label>
+            <input
+              name="comic-book"
+              value="sometimes"
+              type="radio"
+              class="input-radio"
+            />
+            Yes, sometimes.
+          </label>
+
+          <label>
+            <input
+              name="comic-book"
+              value="not-usually"
+              type="radio"
+              class="input-radio"
+            />
+            No, not usually.
+          </label>
+
+          <label>
+            <input
+              name="comic-book"
+              value="never"
+              type="radio"
+              class="input-radio"
+            />
+            No, never.
+          </label>
+        </div>
+
+        <div class="form=group">
+          <p>
+            I mostly know about superheros because of...
+            <span class="clue">(Check all that apply)</span>
+          </p>
+
+          <label>
+            <input
+              name="knowledge"
+              value="movies"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Movies
+          </label>
+
+          <label>
+            <input
+              name="knowledge"
+              value="tv-shows"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            TV Shows
+          </label>
+
+          <label>
+            <input
+              name="knowledge"
+              value="comic-book"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Comic Book
+          </label>
+
+          <label>
+            <input
+              name="knowledge"
+              value="other-books"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Other Books
+          </label>
+
+          <label>
+            <input
+              name="knowledge"
+              value="family"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Family / Friends who like superheros
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Who is your favorite superhero teams?
+          </p>
+
+          <label>
+            <input
+              name="teams"
+              value="jla"
+              type="radio"
+              class="input-radio"
+            />
+            Justice League of America
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="league"
+              type="radio"
+              class="input-radio"
+            />
+            The League of Extraordinary Gentlemen
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="xmen"
+              type="radio"
+              class="input-radio"
+            />
+            The X-Men
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="avengers"
+              type="radio"
+              class="input-radio"
+            />
+            The Avengers
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="fantastic"
+              type="radio"
+              class="input-radio"
+            />
+            The Fantastic Four
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="guardians"
+              type="radio"
+              class="input-radio"
+            />
+            Guardians of Galaxy
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="generation"
+              type="radio"
+              class="input-radio"
+            />
+            Generation X
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="ultraforce"
+              type="radio"
+              class="input-radio"
+            />
+            Ultraforce
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="umbrella"
+              type="radio"
+              class="input-radio"
+            />
+            Umbrella Academy
+          </label>
+
+          <label>
+            <input
+              name="teams"
+              value="inhumans"
+              type="radio"
+              class="input-radio"
+            />
+            Inhumans
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Who is your favorite male superhero?
+          </p>
+
+          <label>
+            <input
+              name="male-hero"
+              value="batman"
+              type="radio"
+              class="input-radio"
+            />
+            Batman
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="wolverine"
+              type="radio"
+              class="input-radio"
+            />
+            Wolverine
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="panther"
+              type="radio"
+              class="input-radio"
+            />
+            Black Panther
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="voodoo"
+              type="radio"
+              class="input-radio"
+            />
+            Doctor Voodoo
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="icon"
+              type="radio"
+              class="input-radio"
+            />
+            Icon
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="marvel"
+              type="radio"
+              class="input-radio"
+            />
+            Blue Marvel
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="hulk"
+              type="radio"
+              class="input-radio"
+            />
+            Hulk
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="superman"
+              type="radio"
+              class="input-radio"
+            />
+            Superman
+          </label>
+
+          <label>
+            <input
+              name="male-hero"
+              value="thor"
+              type="radio"
+              class="input-radio"
+            />
+            Thor
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Who is your favorite female superhero?
+          </p>
+
+          <label>
+            <input
+              name="female-hero"
+              value="storm"
+              type="radio"
+              class="input-radio"
+            />
+            Storm
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="vixen"
+              type="radio"
+              class="input-radio"
+            />
+            Vixen
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="bumblebee"
+              type="radio"
+              class="input-radio"
+            />
+            Bumblebee
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="wonder"
+              type="radio"
+              class="input-radio"
+            />
+            Wonder Woman
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="catwoman"
+              type="radio"
+              class="input-radio"
+            />
+            Catwoman
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="widow"
+              type="radio"
+              class="input-radio"
+            />
+            Black Widow
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="she-hulk"
+              type="radio"
+              class="input-radio"
+            />
+            She-Hulk
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="shuri"
+              type="radio"
+              class="input-radio"
+            />
+            Shuri
+          </label>
+
+          <label>
+            <input
+              name="female-hero"
+              value="witch"
+              type="radio"
+              class="input-radio"
+            />
+            Scarlet Witch
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            What is the best superhero power to have?
+            <span class="clue">(Pick three powers)</span>
+          </p>
+
+          <label>
+            <input
+              name="powers"
+              value="flight"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Flight
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="strength"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Super Strength
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="speed"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Super Speed
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="invisibility"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Invisibility
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="water"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Ability to breath under water
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="weather"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Abulity to control weather
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="telepathically"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Ability to control other people's minds / communicate telepathically
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="technology"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Super technology or gadgets
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="shifting"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Shape-shifiting
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="climbing"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Ability to climb walls
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="invulnerability"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Invulnerability
+          </label>
+
+          <label>
+            <input
+              name="powers"
+              value="teleportation"
+              type="checkbox"
+              class="input-checkbox"
+            />
+            Teleportation
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            The most important character trait for a superhero to have is...
+          </p>
+
+          <label>
+            <input
+              name="character"
+              value="honesty"
+              type="radio"
+              class="input-radio"
+            />
+            Honesty
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="patriotism"
+              type="radio"
+              class="input-radio"
+            />
+            Patriotism
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="friendliness"
+              type="radio"
+              class="input-radio"
+            />
+            Friendliness
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="kindness"
+              type="radio"
+              class="input-radio"
+            />
+            Kindness
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="determination"
+              type="radio"
+              class="input-radio"
+            />
+            Determination
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="intelligence"
+              type="radio"
+              class="input-radio"
+            />
+            Intelligence
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="creativity"
+              type="radio"
+              class="input-radio"
+            />
+            Creativity / Inventiveness
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="bravery"
+              type="radio"
+              class="input-radio"
+            />
+            Bravery
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="leadership"
+              type="radio"
+              class="input-radio"
+            />
+            Leadership Skills
+          </label>
+
+          <label>
+            <input
+              name="character"
+              value="morality"
+              type="radio"
+              class="input-radio"
+            />
+            Morality
+          </label>
+        </div>
+
+        <div class="form-group">
+          <p>
+            Any comments or suggestions?
+          </p>
+
+          <textarea
+            id="comments"
+            class="input-textarea"
+            name="comment"
+            placeholder="Enter your comment here..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <button
+            type="submit"
+            id="submit"
+            class="submit-button"
+          >
+          Submit
+        </button>
+        </div>
+      </form>
+    </div>
+
+    <footer>
+      <p>
+        A project for <a class="codeInfo" href="https://www.freecodecamp.org/">freeCodeCamp</a> by: <a class="codeInfo" href="https://github.com/dreampoetlee"><img src="/resources/theNerdist.png">Jay Lee Kennedy</a>.
+      </p>
+    </footer>
+  </body>
+</html>
