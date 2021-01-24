@@ -1,3 +1,4 @@
+/*global element styling*/
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&display=swap');
 
 * {
@@ -11,137 +12,27 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-li {
-  list-style: none;
-}
-
-a {
-  color: #1F2041;
-  text-decoration: none;
-  text-align: center;
-  font-size: 25px;
-}
-
-a:hover {
-  color: #FF3C38;
-}
-
-#page_wrapper {
+#page-wrapper {
   position: relative;
-}
-
-.container {
-  max-width: 1000px;
   width: 100%;
-  margin: 0 auto;
-}
-
-.btn {
-  padding: 0 20px;
-  height: 40px;
+  border: 5px solid black;
 }
 
 .siteHeader {
   display: flex;
-  background-color: #F26419;
+  position: fixed;
   justify-content: space-between;
   padding: 10px;
-  height: 138px;
-  top: -472px;
-  left: -673px;
-  border: 2px solid yellow;
-}
-
-@media (max-width: 600px) {
-  .siteHeader {
-    flex-wrap: wrap;
-  }  
-}
-
-.siteHeaderLogo {
-  width: 60vw;
-}
-
-@media (max-width: 650px) {
-  .siteHeaderLogo {
-    margin-top: 15px;
-    width: 100%;
-    position: relative;
-  }
-}
-
-.siteHeaderLogo > img {
+  height: 128px;
   width: 100%;
-  height: 100%;
-  max-width: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-left: 20px;
-}
-
-@media (max-width: 650px) {
-  .siteHeaderLogo > img {
-    margin: 0 auto;
-  }
-}
-
-#nav-bar {
-  background-color: #368f8b;
-  display: flex;
-  flex-direction: row;  
-  width: 618px;
-  height: 66px;
-  top: -440px;
-  left: 19px;
-}
-
-nav {
-  font-weight: 400;
-}
-
-@media (max-width: 650px) {
-  nav {
-    margin-top: 40px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 0 50px;
-  }
-  nav li {
-    padding-bottom: 5px;
-  }
-}
-
-nav > ul {
-  width: 35vw;
-  height: 75px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-}
-
-@media (max-width: 650px) {
-  nav > ul {
-    flex-direction: column;
-  }
+  background-color: #F26419;
+  border: 2px solid yellow;
 }
 
 .siteHeader_section {
   display: flex;
   align-items: center;
-  /* position: fixed; */
+  flex-direction: row;
+  background-color: blue;
   border: 2px solid black;
 }
-
-  .siteHeader_item {
-    padding: 5px 15px;
-  }
-
-  .siteHeaderButton {
-    cursor: pointer;
-  }
